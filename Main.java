@@ -11,7 +11,7 @@ public class Main {
 	String s = null;
 	Scanner scan = null;
 	try {
-	    scan = new Scanner(new File("d:\\Coding\\Java\\epam tasks\\Example.txt")).useDelimiter(";");
+	    scan = new Scanner(new File("c:\\Users\\Danik\\git\\Sobes\\Prob\\src\\Vitya\\Example.txt")).useDelimiter(";");
 
 	    System.out.println(scan.delimiter());
 	    while (scan.hasNext()) {
