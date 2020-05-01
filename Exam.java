@@ -1,28 +1,22 @@
 package Vitya;
 
 public class Exam extends Example {
-
-    private String exam1;
-    private String exam2;
-
+   
     private int examEstimate1;
     private int examEstimate2;
+    private int minEstimate;
+   
 
-    public Exam(String participant, String exam1, String exam2, int examEstimate1, int examEstimate2) {
-	super(participant);
-	this.exam1 = exam1;
-	this.exam2 = exam2;
+
+    public Exam(String participant, String subject1, String subject2, int examEstimate1, int examEstimate2, int minEstimate) {
+	super(participant,subject1,subject2);
+
 	this.examEstimate1 = examEstimate1;
 	this.examEstimate2 = examEstimate2;
+	this.minEstimate = minEstimate;
     }
-
-    String getExam1() {
-	return this.exam1;
-    }
-
-    String getExam2() {
-	return this.exam2;
-    }
+    
+       
 
     int getExamEstimate1() {
 	return this.examEstimate1;
@@ -31,10 +25,20 @@ public class Exam extends Example {
     int getExamEstimate2() {
 	return this.examEstimate2;
     }
+    
+    
+    public int getMinEstimate() {
+        return minEstimate;
+    }
 
-    void getOK(int min) {
+
+    public void setMinEstimate(int min) {
+        this.minEstimate = min;
+    }
+
+    void getOK() {
 	int sum = examEstimate1 + examEstimate2;
-	if (sum >= min)
+	if (sum >= minEstimate)
 	    setPassed(true);
 	else
 	    setPassed(false);
@@ -43,9 +47,9 @@ public class Exam extends Example {
 
     @Override
     public String toString() {
-	return "Exam [Participant= " + getParticipant() + ", Exam1= " + getExam1() + ", examEstimate1= "
-		+ getExamEstimate1() + ", Exam2= " + getExam2() + ", examEstimate2= " + getExamEstimate2()
-		+ ", Passed= " + isPassed() + "]\n";
+	return "Exam [Participant= " + getParticipant() + ", Subject1= " + getSubject1() + ", examEstimate1= "
+		+ getExamEstimate1() + ", Subject2= " + getSubject2() + ", examEstimate2= " + getExamEstimate2()
+		+ ", MinEstimate= "+ getMinEstimate() + ", Passed= " + isPassed() + "]\n";
     }
 
 }

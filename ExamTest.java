@@ -2,42 +2,44 @@ package Vitya;
 
 public class ExamTest extends Example {
 
-    private String exam1;
+   
+    private double examEstimate;
+    
+    private double minEstimate;
 
-    private String test1;
-
-    private double examEstimate1;
-
-    private boolean testResult1;
-
-    public ExamTest(String participant, String exam1, String test1, double examEstimate1, boolean testResult1) {
-	super(participant);
+    private boolean testResult;
+    
+    
+    public ExamTest(String participant, String subject1, String subject2, double examEstimate, boolean testResult,double minEstimate) {
+	super(participant,subject1,subject2);
 	// TODO Auto-generated constructor stub
-	this.exam1 = exam1;
-	this.test1 = test1;
-	this.examEstimate1 = examEstimate1;
-	this.testResult1 = testResult1;
+	
+	this.examEstimate = examEstimate;
+	this.minEstimate = minEstimate;
+	this.testResult = testResult;
+	
+	
+    }
+    
+    double getExamEstimate() {
+	return this.examEstimate;
+    }
+    
+    double getMinEstimate() {
+	return this.minEstimate;
+    }
+    
+    double setMinEstimate(double min) {
+	return this.minEstimate;
     }
 
-    String getExam1() {
-	return this.exam1;
+    boolean getTestResult() {
+	return this.testResult;
     }
 
-    String getTest1() {
-	return this.test1;
-    }
+    void getOK() {
 
-    double getExamEstimate1() {
-	return this.examEstimate1;
-    }
-
-    boolean getTestResult1() {
-	return this.testResult1;
-    }
-
-    void getOK(double min) {
-
-	if (examEstimate1 >= min & testResult1)
+	if (examEstimate >= minEstimate & testResult)
 	    setPassed(true);
 	else
 	    setPassed(false);
@@ -46,9 +48,9 @@ public class ExamTest extends Example {
 
     @Override
     public String toString() {
-	return "Exam [Participant= " + getParticipant() + ", Exam1= " + getExam1() + ", examEstimate1= "
-		+ getExamEstimate1() + ", Test1= " + getTest1() + ", testResult1= " + getTestResult1() + ", Passed= "
-		+ isPassed() + "]\n";
+	return "ExamTest [Participant= " + getParticipant() + ", Subject1= " + getSubject1() + ", examEstimate1= "
+		+ getExamEstimate() + ", Subject2= " + getSubject2() + ", testResult1= " + getTestResult() 
+		+ " MinEstimate= " + getMinEstimate()+", Passed= "+ isPassed() + "]\n";
     }
 
 }

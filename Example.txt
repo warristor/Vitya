@@ -1,6 +1,6 @@
-Vasya;Biolog;Chemical;6;5;
-Masha;Biolog;Chemical;8;8;
-Petya;Phisic;Geo;3.2;false;
-Katya;Phisic;Geo;6.7;true;
-Tanya;Lang;Mat;true;true;
-Sasha;Lang;Mat;true;false;
+Exam;Vasya;Biolog;Chemical;6;5;11
+Exam;Masha;Biolog;Chemical;8;8;11
+ExamTest;Petya;Phisic;Geo;3.2;false;4
+ExamTest;Katya;Phisic;Geo;6.7;true;6
+Test;Tanya;Lang;Mat;true;true
+Test;Sasha;Lang;Mat;true;false

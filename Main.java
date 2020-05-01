@@ -8,17 +8,31 @@ public class Main {
 
     public static void main(String[] args) {
 	// TODO Auto-generated method stub
-	String s = null;
+	String nextLine = null;
 	Scanner scan = null;
+	
+	List<Example> list=new ArrayList<>();
+	
 	try {
-	    scan = new Scanner(new File("c:\\Users\\Danik\\git\\Sobes\\Prob\\src\\Vitya\\Example.txt")).useDelimiter(";");
+	    scan = new Scanner(new File("c:\\Users\\Danik\\git\\Sobes\\Prob\\src\\Vitya\\Example.txt"));
+		//scan.useDelimiter(";");
 
-	    System.out.println(scan.delimiter());
+	    //System.out.println(scan.delimiter());
 	    while (scan.hasNext()) {
-		System.out.println(s = scan.next());
-
+		nextLine = scan.nextLine();
+		String[] s=nextLine.split(";");
+		
+		   if(s[0].equals("Exam")) {
+		       list.add(new Exam(s[1],s[2],s[3],Integer.parseInt(s[4]),Integer.parseInt(s[5]),Integer.parseInt(s[6])));
+		   }else if(s[0].equals("ExamTest")){
+		       list.add(new ExamTest(s[1],s[2],s[3],Double.parseDouble(s[4]),Boolean.parseBoolean(s[5]),Double.parseDouble(s[6])));
+		   }else if(s[0].equals("Test")){
+		       list.add(new Test(s[1],s[2],s[3],Boolean.parseBoolean(s[4]),Boolean.parseBoolean(s[5])));
+		   }
+		
 	    }
-
+	   
+	     
 	} catch (FileNotFoundException e) {
 
 	    // e.printStackTrace();
@@ -26,22 +40,13 @@ public class Main {
 	    scan.close();
 	}
 
-//		List<Example> list=new ArrayList<>();
-//		list.add(new Exam("Vasya","Biolog","Chemical",6,5));
-//		list.add(new Exam("Masha","Biolog","Chemical",8,8));
-//		list.add(new ExamTest("Petya","Phisic","Geo",3.2,false));
-//		list.add(new ExamTest("Katya","Phisic","Geo",6.7,true));
-//		list.add(new Test("Tanya","Lang","Mat",true,true));
-//		list.add(new Test("Sasha","Lang","Mat",true,false));
-//		
-//		System.out.println(list);
-//		 ((Exam)list.get(0)).getOK(11);
-//		 ((ExamTest) list.get(2)).getOK(11);
-//		 ((Test)list.get(4)).getOK();
-//		 
-//		  list.sort((a,b)->a.isPassed().compareTo(b.isPassed()));	
-//		  Collections.reverse(list);
-//		  System.out.println(list);
+	for(Example e:list) {
+	    e.getOK();
+	}
+	
+		  list.sort((a,b)->a.isPassed().compareTo(b.isPassed()));	
+		  Collections.reverse(list);
+		  System.out.println(list);
 
     }
 
