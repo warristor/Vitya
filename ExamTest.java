@@ -1,6 +1,6 @@
 package Vitya;
 
-public class ExamTest extends Example {
+public class ExamTest extends Examination {
 
    
     private double examEstimate;
@@ -36,8 +36,9 @@ public class ExamTest extends Example {
     boolean getTestResult() {
 	return this.testResult;
     }
-
-    void getOK() {
+    
+    @Override
+    void calculateTheResult() {
 
 	if (examEstimate >= minEstimate & testResult)
 	    setPassed(true);
