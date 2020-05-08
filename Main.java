@@ -8,22 +8,17 @@ public class Main {
 
     public static void main(String[] args) {
 		
-	Scanner scan = null;
-	
 	//обьявляем список участников
 	List<Examination> listOfParticipant=new ArrayList<>();
-	
-	
+		
 	if(args.length!=0) {
 	
-	try {
-	    
-	 	//загружаем файл для чтения 	   
-	    scan = new Scanner(new File(args[0]));
-	    	    
-		//читаем файл в цикле по строчно и инициализируем список участников	    	    
-	    while (scan.hasNext()) {
-		 String nextLine = scan.nextLine();
+	     //загружаем файл для чтения 
+	try(Scanner scan = new Scanner(new File(args[0]))) {
+		    
+	   //читаем файл в цикле по строчно и инициализируем список участников	    	    
+          while (scan.hasNext()) {
+	        String nextLine = scan.nextLine();
 						 
 		String[] s=nextLine.split(";");
 		
@@ -34,15 +29,10 @@ public class Main {
 		   }else if(s[0].equals("Tests")){
 		       listOfParticipant.add(new Tests(s[1],s[2],s[3],Boolean.parseBoolean(s[4]),Boolean.parseBoolean(s[5])));
 		   }
-		
-	    }
+		}
 	    
 	} catch (FileNotFoundException e) {
          System.out.println(e);
-	    
-	} finally {
-	    if(scan!=null) scan.close();
-	    else return;
 	}
 	
 	//подчситываем результат контрольных мероприятий
@@ -58,9 +48,5 @@ public class Main {
 	}else {
 	    System.out.println("Укажите файл для чтения.");
 	}
-	
-	
-		  
     }
-
 }
